@@ -1,0 +1,2849 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Republic Day India</title>
+  
+  <style>
+    * {
+      box-sizing: border-box;
+      transition: 0.25s ease;
+    }
+    
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+    }
+    
+    /* ================= NAVBAR ================= */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 15px;
+      z-index: 1000;
+    }
+    
+    nav h2 {
+      margin: 0;
+      font-size: 18px;
+      color: #00eaff;
+    }
+    
+    .menu {
+      font-size: 28px;
+      cursor: pointer;
+    }
+    
+    /* ================= SIDE MENU ================= */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      right: -260px;
+      width: 260px;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.9);
+      padding-top: 80px;
+      z-index: 999;
+    }
+    
+    .side-menu button {
+      width: 90%;
+      margin: 10px auto;
+      padding: 12px;
+      display: block;
+      background: transparent;
+      color: #fff;
+      border: 1px solid #00eaff;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+    
+    /* ACTIVE BUTTON */
+    .side-menu button.active-btn {
+      background: #00eaff;
+      color: #000;
+      box-shadow: 0 0 18px #00eaff;
+      transform: scale(1.05);
+    }
+    
+    /* HOVER 
+    .side-menu button:hover {
+      background: rgba(0, 234, 255, 0.2);
+    }
+    
+    /* OVERLAY */
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      display: none;
+      z-index: 998;
+    }
+    
+    /* ================= SECTIONS ================= */
+    section {
+      display: none;
+      padding: 90px 15px 40px;
+      animation: fade 0.4s ease;
+    }
+    
+    section.active {
+      display: block;
+    }
+    
+    @keyframes fade {
+      from {
+        opacity: 0;
+        transform: translateY(20px)
+      }
+      
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+    
+    /* ================= HOME ================= */
+    .tagline {
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      color: #ffd700;
+      text-shadow: 0 0 10px #ffd700;
+    }
+    
+    /* ASHOK CHAKRA */
+    
+    .chakra {
+      width: 180px;
+      height: 180px;
+      border: 6px solid #00eaff;
+      border-radius: 50%;
+      margin: 25px auto;
+      position: relative;
+      animation: spin 20s linear infinite;
+      box-shadow: 0 0 30px #00eaff, 0 0 60px #00eaff inset;
+      background: radial-gradient(circle at center, rgba(0, 234, 255, 0.2) 0%, transparent 70%);
+    }
+    
+    .chakra span {
+      position: absolute;
+      width: 2px;
+      height: 100%;
+      background: #00eaff;
+      left: 50%;
+      top: 0;
+    }
+    
+    @keyframes spin {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+    
+    /* CARD */
+    
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+      backdrop-filter: blur(8px);
+      text-align: center;
+      font-size: 16px;
+    }
+    
+    /* HERO CARDS */
+    .hero-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .hero {
+      perspective: 1000px;
+    }
+    
+    .hero-inner {
+      position: relative;
+      min-height: 160px;
+      transform-style: preserve-3d;
+    }
+    
+    .hero.active .hero-inner {
+      transform: rotateY(180deg);
+    }
+    
+    .hero-front,
+    .hero-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      padding: 15px;
+      border-radius: 15px;
+      box-shadow: 0 0 18px rgba(0, 255, 255, 0.4);
+    }
+    
+    .hero-front {
+      background: rgba(255, 255, 255, 0.15);
+    }
+    
+    .hero-back {
+      background: #00eaff;
+      color: #000;
+      transform: rotateY(180deg);
+    }
+    
+    /* SIMPLE BUTTON */
+    .simple {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 30px;
+      background: #00eaff;
+      color: #000;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #00eaff;
+    }
+    
+    .satya {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: #ffd700;
+      /* golden color */
+      text-shadow: 0 0 8px #ffd700, 0 0 20px #ff8c00;
+      /* glow effect */
+      margin-top: 15px;
+      letter-spacing: 2px;
+      animation: glow 1.8s ease-in-out infinite alternate;
+    }
+    
+    /* Glow animation */
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 8px #ffd700, 0 0 20px #ff8c00;
+      }
+      
+      to {
+        text-shadow: 0 0 15px #ffd700, 0 0 35px #ff8c00;
+      }
+    }
+    
+    .home-card {
+      background: rgba(255, 255, 255, 0.15);
+      /* transparent white */
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(0, 234, 255, 0.4);
+      /* glowing effect */
+      backdrop-filter: blur(6px);
+      font-size: 16px;
+      line-height: 1.6;
+      color: #fff;
+      max-width: 600px;
+      text-align: justify;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .home-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 35px rgba(0, 234, 255, 0.6);
+    }
+    
+    .home-card i {
+      display: block;
+      /* अलग line में दिखाने के लिए */
+      margin-top: 15px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+      color: #ffd700;
+      /* golden color */
+      background: rgba(255, 215, 0, 0.1);
+      /* हल्का background */
+      padding: 10px 12px;
+      border-radius: 10px;
+      text-shadow: 0 0 8px #ffd700, 0 0 15px #ff8c00;
+      /* glow effect */
+      box-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .home-card i:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
+      /* hover effect */
+    }
+    
+    .timeline-story h3,
+    #timeline h3 {
+      text-align: center;
+      color: #ffd700;
+      text-shadow: 0 0 10px #ffd700;
+    }
+    
+    .timeline-story p {
+      line-height: 1.7;
+      margin-bottom: 12px;
+      color: #f1faff;
+    }
+    
+    .timeline-quote {
+      display: block;
+      margin-top: 15px;
+      padding: 12px;
+      border-left: 4px solid #ffd700;
+      background: rgba(255, 215, 0, 0.1);
+      font-style: italic;
+      color: #ffd700;
+    }
+    
+    .timeline-item {
+      background: rgba(255, 255, 255, 0.08);
+      margin: 12px 0;
+      padding: 14px;
+      border-left: 4px solid #00eaff;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    
+    .timeline-item span {
+      font-weight: bold;
+      color: #00eaff;
+    }
+    
+    .timeline-item:hover {
+      box-shadow: 0 0 15px #00eaff;
+    }
+    
+    .timeline-content {
+      display: none;
+      margin-top: 8px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #e0f7ff;
+    }
+    
+    .journey-card h3 {
+      text-align: center;
+      color: #ffd700;
+      text-shadow: 0 0 10px #ffd700;
+      margin-bottom: 15px;
+    }
+    
+    .journey-card p {
+      line-height: 1.7;
+      color: #eafcff;
+    }
+    
+    .journey-step {
+      margin-top: 18px;
+      padding: 14px;
+      border-left: 4px solid #00eaff;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+    }
+    
+    .journey-step h4 {
+      margin: 0 0 6px;
+      color: #00eaff;
+    }
+    
+    .journey-quote {
+      display: block;
+      margin-top: 18px;
+      padding: 12px;
+      background: rgba(255, 215, 0, 0.12);
+      border-left: 4px solid #ffd700;
+      color: #ffd700;
+      font-style: italic;
+    }
+    
+    .article {
+      background: rgba(0, 255, 255, 0.08);
+      border-left: 4px solid #00eaff;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    
+    .article-title {
+      font-weight: bold;
+      color: #00f7ff;
+    }
+    
+    .article-content {
+      display: none;
+      margin-top: 8px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #e0faff;
+    }
+    
+    .article.active .article-content {
+      display: block;
+    }
+    
+    .info-box {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 10px;
+      margin: 6px 0;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    
+    .law-box {
+      background: rgba(255, 215, 0, 0.1);
+      border: 1px solid #ffd700;
+      padding: 8px;
+      margin: 6px 0;
+      border-radius: 8px;
+    }
+    
+    #quiz .card {
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+      margin: 20px auto;
+      max-width: 600px;
+    }
+    
+    #question {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+    
+    #progress {
+      font-size: 16px;
+      color: #ffd700;
+      margin-bottom: 15px;
+    }
+    
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 15px;
+    }
+    
+    .options button {
+      padding: 12px;
+      border-radius: 25px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      background: #00eaff;
+      color: #000;
+      box-shadow: 0 0 15px #00eaff;
+      transition: 0.3s;
+    }
+    
+    .options button.correct {
+      background: #00ff00;
+      color: #000;
+      box-shadow: 0 0 18px #00ff00;
+    }
+    
+    .options button.wrong {
+      background: #ff3300;
+      color: #fff;
+      box-shadow: 0 0 18px #ff3300;
+    }
+    
+    #result {
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      min-height: 24px;
+    }
+    
+    #game-container {
+      text-align: center;
+      padding: 20px;
+    }
+    
+    #stage-buttons button {
+      margin: 10px;
+    }
+    
+    #final-result p {
+      font-size: 18px;
+      font-weight: bold;
+      color: #ffd700;
+      text-shadow: 0 0 8px #ffd700;
+    }
+    
+    .simp {
+      width: 40%;
+      margin: 3px;
+      border: none;
+      border-radius: 30px;
+      background: #00eaff;
+      color: #000;
+      font-size: 12px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #00eaff;
+    }
+    
+    .section-title {
+      text-align: center;
+      font-size: 26px;
+      margin: 20px 0;
+    }
+    
+    .heroes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    
+    .hero-card {
+      perspective: 1000px;
+      cursor: pointer;
+    }
+    
+    .hero-inner {
+      position: relative;
+      width: 100%;
+      height: 320px;
+      transform-style: preserve-3d;
+      transition: transform 0.7s;
+    }
+    
+    .hero-card.flipped .hero-inner {
+      transform: rotateY(180deg);
+    }
+    
+    .hero-front,
+    .hero-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 15px;
+      padding: 15px;
+      background: #111;
+      color: white;
+      /*box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);*/
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+    }
+    
+    .hero-front img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    
+    .hero-front h3 {
+      margin: 10px 0 5px;
+    }
+    
+    .hero-front p {
+      font-size: 14px;
+      color: #ccc;
+    }
+    
+    
+    
+    .hero-back {
+      transform: rotateY(180deg);
+      font-size: 14px;
+      line-height: 1.5;
+      background: #00eaff;
+      color: #000;
+    }
+    
+    .about-card {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 25px;
+      text-align: center;
+      line-height: 1.7;
+    }
+    
+    .about-card h2 {
+      margin-bottom: 15px;
+      color: #ffd700;
+      text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+    }
+    
+    .about-card p {
+      font-size: 16px;
+      color: #eaeaea;
+      margin-bottom: 12px;
+    }
+    
+    .about-quote {
+      margin-top: 15px;
+      padding: 12px;
+      border-left: 4px solid #ff9933;
+      border-right: 4px solid #138808;
+      background: rgba(255, 255, 255, 0.05);
+      font-style: italic;
+      border-radius: 10px;
+    }
+    
+    .hero-front {
+      display: flex;
+      flex-direction: column;
+      padding: 15px;
+    }
+    
+    /* SCROLLABLE CONTENT */
+    .hero-front-scroll {
+      margin-top: 8px;
+      overflow-y: auto;
+      flex: 1;
+      /* 🔥 THIS IS IMPORTANT */
+      font-size: 2px;
+      color: #ccc;
+    }
+    
+    /* smooth mobile scroll */
+    .hero-front-scroll {
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    .insta-card {
+      padding: 0;
+      background: #fff;
+      color: #000;
+      overflow: hidden;
+    }
+    
+    /* TOP PROFILE */
+    .insta-top {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .dp-ring {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      padding: 2px;
+      background: linear-gradient(45deg, #ff9933, #ff1493);
+    }
+    
+    .dp-ring img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    
+    .profile-info {
+      flex: 1;
+      margin-left: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #00e5ff;
+    }
+    
+    .profile-info span {
+      display: block;
+      font-size: 11px;
+      color: #CDC4C4;
+    }
+    
+    .opt {
+      font-size: 18px;
+    }
+    
+    /* STATS */
+    .insta-stats {
+      display: flex;
+      justify-content: space-around;
+      padding: 8px 0;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .insta-stats div {
+      text-align: center;
+      font-size: 12px;
+    }
+    
+    .insta-stats span {
+      display: block;
+      font-size: 14px;
+      color: #d4d4d4;
+    }
+    
+    /* POSTS AREA */
+    .insta-posts {
+      height: 180px;
+      /* 🔥 FIXED – CARD HEIGHT SAME */
+      overflow-y: auto;
+      padding: 8px;
+    }
+    
+    /* POST */
+    .post {
+      /*background: #f6f6f6;*/
+      background: #0D355A;
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    
+    .post p {
+      font-size: 15px;
+      color: #FFF;
+    }
+    
+    .date {
+      display: block;
+      margin-top: 6px;
+      font-size: 12px;
+      color: #999;
+    }
+    
+    /* SCROLLBAR */
+    .insta-posts::-webkit-scrollbar {
+      width: 3px;
+    }
+    
+    .insta-posts::-webkit-scrollbar-thumb {
+      background: #ff9933;
+      border-radius: 10px;
+    }
+    
+    #flag-section {
+      text-align: center;
+      padding: 40px 20px;
+      /*background: #fff;*/
+      margin-top: 30px;
+    }
+    
+    .section-title {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #ff9933;
+    }
+    
+    /* WRAPPER */
+    .flag-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      margin-bottom: 25px;
+      
+    }
+    
+    /* POLE */
+    .flag-pole {
+      width: 10px;
+      height: 260px;
+      /*background: linear-gradient(#666, #222);
+      background: linear-gradient(to bottom, #6b4d3b, #4f3525);*/
+      background: linear-gradient(to bottom, #6b4d3b, #4f3525);
+      box-shadow: 0 0 10px #b07250, 0 0 20px #b07250, 0 0 30px #b07250;
+      border-radius: 5px;
+      margin-right: 8px;
+    }
+    
+    /* FLAG */
+    .flag {
+      width: 240px;
+      border: 1px solid #ccc;
+    }
+    
+    .saffron {
+      height: 45px;
+      background: #ff9933;
+    }
+    
+    .white {
+      height: 45px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .green {
+      height: 45px;
+      background: #138808;
+    }
+    
+    /* CHAKRA */
+    .chak {
+      width: 32px;
+      height: 32px;
+      border: 2px solid navy;
+      border-radius: 50%;
+      position: relative;
+    }
+    
+    .chak span {
+      position: absolute;
+      width: 1.5px;
+      height: 100%;
+      background: navy;
+      left: 50%;
+      top: 0;
+      transform-origin: center;
+      transform: translateX(-50%);
+    }
+    
+    /* 24 SPOKES */
+    .chak span:nth-child(1) {
+      transform: translateX(-50%) rotate(0deg);
+    }
+    
+    .chak span:nth-child(2) {
+      transform: translateX(-50%) rotate(15deg);
+    }
+    
+    .chak span:nth-child(3) {
+      transform: translateX(-50%) rotate(30deg);
+    }
+    
+    .chak span:nth-child(4) {
+      transform: translateX(-50%) rotate(45deg);
+    }
+    
+    .chak span:nth-child(5) {
+      transform: translateX(-50%) rotate(60deg);
+    }
+    
+    .chak span:nth-child(6) {
+      transform: translateX(-50%) rotate(75deg);
+    }
+    
+    .chak span:nth-child(7) {
+      transform: translateX(-50%) rotate(90deg);
+    }
+    
+    .chak span:nth-child(8) {
+      transform: translateX(-50%) rotate(105deg);
+    }
+    
+    .chak span:nth-child(9) {
+      transform: translateX(-50%) rotate(120deg);
+    }
+    
+    .chak span:nth-child(10) {
+      transform: translateX(-50%) rotate(135deg);
+    }
+    
+    .chak span:nth-child(11) {
+      transform: translateX(-50%) rotate(150deg);
+    }
+    
+    .chak span:nth-child(12) {
+      transform: translateX(-50%) rotate(165deg);
+    }
+    
+    .chak span:nth-child(13) {
+      transform: translateX(-50%) rotate(180deg);
+    }
+    
+    .chak span:nth-child(14) {
+      transform: translateX(-50%) rotate(195deg);
+    }
+    
+    .chak span:nth-child(15) {
+      transform: translateX(-50%) rotate(210deg);
+    }
+    
+    .chak span:nth-child(16) {
+      transform: translateX(-50%) rotate(225deg);
+    }
+    
+    .chak span:nth-child(17) {
+      transform: translateX(-50%) rotate(240deg);
+    }
+    
+    .chak span:nth-child(18) {
+      transform: translateX(-50%) rotate(255deg);
+    }
+    
+    .chak span:nth-child(19) {
+      transform: translateX(-50%) rotate(270deg);
+    }
+    
+    .chak span:nth-child(20) {
+      transform: translateX(-50%) rotate(285deg);
+    }
+    
+    .chak span:nth-child(21) {
+      transform: translateX(-50%) rotate(300deg);
+    }
+    
+    .chak span:nth-child(22) {
+      transform: translateX(-50%) rotate(315deg);
+    }
+    
+    .chak span:nth-child(23) {
+      transform: translateX(-50%) rotate(330deg);
+    }
+    
+    .chak span:nth-child(24) {
+      transform: translateX(-50%) rotate(345deg);
+    }
+    
+    /* BUTTON */
+    .anthem-btn {
+      padding: 10px 18px;
+      font-size: 15px;
+      border: none;
+      border-radius: 6px;
+      background: #0a5cff;
+      color: #fff;
+      cursor: pointer;
+    }
+    
+    
+    
+    .hero-back {
+      overflow: hidden;
+      /* बाहर कुछ न जाए */
+    }
+    
+    .hero-back-scroll {
+      max-height: 100%;
+      overflow-y: auto;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    
+    /* BACK SCROLLBAR */
+    .hero-back-scroll::-webkit-scrollbar {
+      width: 3px;
+    }
+    
+    .hero-back-scroll::-webkit-scrollbar-thumb {
+      background: #ff9933;
+      /* 🇮🇳 ORANGE */
+      border-radius: 10px;
+    }
+    
+    .instructions {
+      text-align: center;
+      font-size: 16px;
+      font-weight: 500;
+      color: #ffcc00;
+      /* सुनहरा रंग, patriotic feel */
+      margin: 15px 0 10px 0;
+      background: #1a1a2e;
+      /* हल्का dark background */
+      padding: 12px 15px;
+      border-radius: 10px;
+      border: 1px solid #ffcc00;
+      line-height: 1.6;
+      /* spacing better readability */
+    }
+    
+    #wishPage {
+      display: none;
+      min-height: 100vh;
+      /*background: linear-gradient(#ff9933, #fff, #138808);*/
+      padding: 20px;
+      
+    }
+    
+    section.active#wishPage {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .wish-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: red;
+      height: 90vh;
+    }
+    
+    .wish-box {
+      display: none;
+      background: #fff;
+      width: 100%;
+      max-width: 360px;
+      padding: 20px;
+      border-radius: 16px;
+      text-align: center;
+      margin-top: 80px;
+    }
+    
+    .wish-box h2 {
+      color: #0a3cff
+    }
+    
+    .wish-box p {
+      font-size: 14px
+    }
+    
+    .wish-box h3 {
+      color: #ff6600
+    }
+    
+    .wish-box input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 2px solid #ff9933;
+      border-radius: 8px;
+    }
+    
+    .wish-box button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      border: none;
+      border-radius: 20px;
+      background: #0a5cff;
+      color: #fff;
+    }
+    
+    .back {
+      background: #555
+    }
+    
+    .wish-home {
+      display: block
+    }
+    
+    .wish-wrapper {
+      color: #f0f0ff;
+      
+      width: 400px;
+      
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+    
+    /* CARDS */
+    .wish-box {
+      background: linear-gradient(145deg, #27293d, #1e1e2e);
+      /* subtle dark gradient */
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6);
+      text-align: center;
+      border: 1px solid #3a3c5a;
+      transition: transform 0.3s, box-shadow 0.3s;
+      
+    }
+    
+    .wish-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+    }
+    
+    /* HEADINGS */
+    .wish-box h2 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      color: #ffcc00;
+      /* Gold color for patriotic feel */
+    }
+    
+    .wish-box p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+    
+    .wish-box h3 {
+      font-size: 16px;
+      color: #00e5ff;
+      /* Light blue for sender name */
+      margin-bottom: 15px;
+    }
+    
+    /* INPUTS */
+    .wish-box input {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      border: none;
+      font-size: 14px;
+    }
+    
+    /* BUTTONS */
+    .wish-box button {
+      width: 100%;
+      padding: 10px 15px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      background: #00bfff;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    
+    .wish-box button:hover {
+      background: #009acd;
+    }
+    
+    /* FINAL CARD LINK INPUT */
+    #wishLink {
+      background: #1f1f2e;
+      color: #f0f0ff;
+      text-align: center;
+      cursor: pointer;
+    }
+    
+    /* RESPONSIVE */
+    @media screen and (max-width: 450px) {
+      .wish-wrapper {
+        width: 95%;
+      }
+    }
+    
+    .anthem-note {
+      margin-top: 12px;
+      font-size: 14px;
+      color: #eaeaea;
+      text-align: center;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+  
+  <nav>
+    <h2>Republic Day 🇮🇳</h2>
+    <div class="menu" onclick="toggleMenu()">☰</div>
+  </nav>
+  
+  <div id="overlay"></div>
+  
+  <div class="side-menu" id="menu">
+    <button class="active-btn" onclick="showPage('home',this)">Home</button>
+    <button onclick="showPage('timeline',this)">Timeline</button>
+    <button onclick="showPage('journey',this)">Journey</button>
+    <button onclick="showPage('quiz',this)">Quiz</button>
+    <button onclick="showPage('constitution',this)">Constitution</button>
+    <button onclick="showPage('game',this)">Game</button>
+    <button onclick="showPage('heroes',this)">Heroes</button>
+    <button onclick="showPage('flag-section',this)">flag</button>
+    <button onclick="showPage('wishPage',this)">create wish card</button>
+    <button onclick="showPage('about',this)">About Me</button>
+    
+  </div>
+  
+  
+  
+  <section id="home" class="active">
+    <div class="tagline">Soul of India : The Constitution</br></div>
+    
+    <div class="chakra">
+      <span></span>
+      <span style="transform:rotate(15deg)"></span>
+      <span style="transform:rotate(30deg)"></span>
+      <span style="transform:rotate(45deg)"></span>
+      <span style="transform:rotate(60deg)"></span>
+      <span style="transform:rotate(75deg)"></span>
+      <span style="transform:rotate(90deg)"></span>
+      <span style="transform:rotate(105deg)"></span>
+      <span style="transform:rotate(120deg)"></span>
+      <span style="transform:rotate(135deg)"></span>
+      <span style="transform:rotate(150deg)"></span>
+      <span style="transform:rotate(165deg)"></span>
+      <span style="transform:rotate(180deg)"></span>
+      <span style="transform:rotate(195deg)"></span>
+      <span style="transform:rotate(210deg)"></span>
+      <span style="transform:rotate(225deg)"></span>
+      <span style="transform:rotate(240deg)"></span>
+      <span style="transform:rotate(255deg)"></span>
+      <span style="transform:rotate(270deg)"></span>
+      <span style="transform:rotate(285deg)"></span>
+      <span style="transform:rotate(300deg)"></span>
+      <span style="transform:rotate(315deg)"></span>
+      <span style="transform:rotate(330deg)"></span>
+      <span style="transform:rotate(345deg)"></span>
+    </div>
+    <div class="satya">
+      सत्यमेव जयते<br>
+      <p style="font-size: 14px;">Unity • Constitution • Democracy</p>
+    </div>
+    
+    
+    <div class="card home-card">
+      <p>
+        आप सभी को गणतंत्र दिवस की हार्दिक शुभकामनाएं, <b>गणतंत्र दिवस</b> हर साल 26 जनवरी को मनाया जाता है। इस दिन भारत का संविधान लागू हुआ और देश को लोकतांत्रिक गणराज्य का दर्जा मिला।
+        यह दिन हमें हमारे संविधान, लोकतंत्र और राष्ट्रीय एकता की याद दिलाता है।
+        इस दिन राजपथ पर भव्य परेड होती है, तिरंगा फहराया जाता है और सांस्कृतिक कार्यक्रम आयोजित किए जाते हैं।
+        गणतंत्र दिवस हमें देशभक्ति और अपने अधिकारों व कर्तव्यों की जिम्मेदारी का अहसास कराता है।
+        <br>
+      <div class="journey-step">
+        <h4>🇮🇳 गणतंत्र दिवस का महत्व</h4>
+        
+        <p>
+          26 जनवरी 1950 वह ऐतिहासिक दिन है जब भारत ने
+          अपने संविधान को अपनाया और एक संप्रभु,
+          लोकतांत्रिक गणराज्य के रूप में स्वयं को स्थापित किया।
+          इस दिन भारत केवल आज़ाद ही नहीं,
+          बल्कि स्वयं के नियमों से चलने वाला राष्ट्र बना।
+        </p>
+        
+        <p>
+          गणतंत्र दिवस हमें यह याद दिलाता है कि
+          लोकतंत्र की असली शक्ति सरकार नहीं,
+          बल्कि उसके जागरूक नागरिक होते हैं।
+          यह दिन हमें हमारे अधिकारों के साथ-साथ
+          कर्तव्यों का भी स्मरण कराता है,
+          ताकि हम एक न्यायपूर्ण, एकजुट और सशक्त भारत का निर्माण कर सकें।
+        </p>
+      </div><br>
+      <i>“संविधान हमारा मार्गदर्शन है और एकता हमारी शक्ति है। सत्यमेव जयते!”</i>
+      </p>
+    </div>
+    
+  </section>
+  
+  
+  <section id="timeline">
+    
+    <!-- STORY PART -->
+    <div class="card timeline-story">
+      <h3>आज़ादी से गणतंत्र तक 🇮🇳</h3>
+      
+      <p>
+        भारत को आज़ादी 15 अगस्त 1947 को मिली।
+        वर्षों तक चले स्वतंत्रता संग्राम में लाखों देशभक्तों ने
+        अपना बलिदान दिया, तब जाकर हम अंग्रेज़ों की गुलामी से मुक्त हुए।
+        लेकिन आज़ादी मिलने के बाद एक बड़ा सवाल सामने खड़ा था —
+        <b>देश को कैसे चलाया जाए?</b>
+      </p>
+      
+      <p>
+        उस समय भारत के पास अपने नियम, कानून और व्यवस्था नहीं थी।
+        हर राज्य, हर समाज और हर नागरिक के लिए
+        एक समान कानून बनाना बहुत ज़रूरी था।
+        इसलिए देश को एक ऐसे <b>संविधान</b> की आवश्यकता थी
+        जो सभी को अधिकार दे और कर्तव्यों की याद दिलाए।
+      </p>
+      
+      <p>
+        कई वर्षों की मेहनत, चर्चा और विचार-विमर्श के बाद
+        संविधान तैयार किया गया।
+        जब <b>26 जनवरी 1950</b> को संविधान लागू हुआ,
+        तब भारत एक <b>लोकतांत्रिक गणराज्य</b> बना।
+        यही कारण है कि हम हर साल इस दिन
+        <b>गणतंत्र दिवस</b> गर्व और सम्मान के साथ मनाते हैं।
+      </p>
+      
+      <i class="timeline-quote">
+        “आज़ादी हमें अधिकार देती है,
+        और संविधान हमें सही रास्ता दिखाता है।”
+      </i>
+    </div>
+    
+    <!-- TIMELINE PART -->
+    <div class="card">
+      <h3>गणतंत्र की ऐतिहासिक समयरेखा ⏳</h3>
+      
+      <div class="timeline-item" onclick="toggleTimeline(this)">
+        <span>1857 – प्रथम स्वतंत्रता संग्राम</span>
+        <div class="timeline-content">
+          1857 का विद्रोह भारत में स्वतंत्रता की पहली बड़ी चिंगारी था,
+          जिसने अंग्रेज़ी शासन की नींव हिला दी।
+        </div>
+      </div>
+      
+      <div class="timeline-item" onclick="toggleTimeline(this)">
+        <span>1942 – भारत छोड़ो आंदोलन</span>
+        <div class="timeline-content">
+          महात्मा गांधी के नेतृत्व में
+          अंग्रेज़ों के खिलाफ निर्णायक आंदोलन शुरू हुआ।
+        </div>
+      </div>
+      
+      <div class="timeline-item" onclick="toggleTimeline(this)">
+        <span>15 अगस्त 1947 – भारत स्वतंत्र हुआ</span>
+        <div class="timeline-content">
+          भारत ने ब्रिटिश शासन से आज़ादी पाई,
+          लेकिन देश के पास तब अपना संविधान नहीं था।
+        </div>
+      </div>
+      
+      <div class="timeline-item" onclick="toggleTimeline(this)">
+        <span>1946–1949 – संविधान निर्माण</span>
+        <div class="timeline-content">
+          डॉ. भीमराव अंबेडकर के नेतृत्व में
+          संविधान सभा ने भारतीय संविधान का निर्माण किया।
+        </div>
+      </div>
+      
+      <div class="timeline-item" onclick="toggleTimeline(this)">
+        <span>26 जनवरी 1950 – गणतंत्र दिवस</span>
+        <div class="timeline-content">
+          इसी दिन भारतीय संविधान लागू हुआ
+          और भारत एक संप्रभु लोकतांत्रिक गणराज्य बना।
+        </div>
+      </div>
+      
+      <div class="timeline-item" onclick="toggleTimeline(this)">
+        <span>आज – राष्ट्रीय गौरव</span>
+        <div class="timeline-content">
+          आज गणतंत्र दिवस पूरे देश में
+          परेड, तिरंगा और सांस्कृतिक कार्यक्रमों के साथ मनाया जाता है।
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  
+  <section id="journey">
+    
+    <div class="card journey-card">
+      <h3>भारत की यात्रा 🇮🇳</h3>
+      
+      <p>
+        भारत की यात्रा केवल वर्षों की नहीं,
+        बल्कि बलिदान, संघर्ष और विश्वास की कहानी है।
+        यह यात्रा गुलामी से शुरू होकर
+        संविधान और लोकतंत्र तक पहुँची।
+      </p>
+      
+      <div class="journey-step">
+        <h4>🔥 संघर्ष का दौर</h4>
+        <p>
+          जब भारत अंग्रेज़ों के अधीन था,
+          तब हर आम नागरिक ने आज़ादी का सपना देखा।
+          भगत सिंह, सुभाष चंद्र बोस,
+          रानी लक्ष्मीबाई जैसे वीरों ने
+          इस सपने के लिए अपने प्राण तक न्योछावर कर दिए।
+        </p>
+      </div>
+      
+      <div class="journey-step">
+        <h4>📜 संविधान का निर्माण</h4>
+        <p>
+          आज़ादी के बाद देश को दिशा देने के लिए
+          एक मजबूत संविधान की आवश्यकता थी।
+          डॉ. भीमराव अंबेडकर के नेतृत्व में
+          ऐसा संविधान बना जिसने
+          सभी नागरिकों को समान अधिकार दिए।
+        </p>
+      </div>
+      
+      
+      
+      <div class="journey-step">
+        <h4>🚀 आज और आने वाला कल</h4>
+        <p>
+          आज भारत विश्व का सबसे बड़ा लोकतंत्र है।
+          विज्ञान, शिक्षा और तकनीक में
+          देश तेजी से आगे बढ़ रहा है।
+          अब भारत का भविष्य
+          हमारे कर्म और सोच पर निर्भर करता है।
+        </p>
+      </div>
+      
+      <i class="journey-quote">
+        “आज का भारत, कल के सपनों से बनता है।”
+      </i>
+    </div>
+    
+  </section>
+  
+  <section id="quiz">
+    <div class="card">
+      <h2 id="question">Question</h2>
+      <h3 id="progress">Question 1 / 15</h3>
+      
+      <div class="options">
+        <button onclick="checkAnswer(0)"></button>
+        <button onclick="checkAnswer(1)"></button>
+        <button onclick="checkAnswer(2)"></button>
+        <button onclick="checkAnswer(3)"></button>
+      </div>
+      
+      <p id="result"></p>
+    </div>
+  </section>
+  
+  <section id="constitution">
+    <!-- CONSTITUTION VALUES -->
+    <div class="card">
+      <h3>🧭 संविधान के मूल मूल्य (Click करें)</h3>
+      
+      <p>
+        संविधान के मूल मूल्य किसी कानून की धारा नहीं,
+        बल्कि वे सिद्धांत हैं जिन पर हमारा देश खड़ा है।
+        न्याय, स्वतंत्रता, समानता और बंधुत्व जैसे मूल्य
+        यह सुनिश्चित करते हैं कि हर नागरिक को
+        सम्मान के साथ जीने का अधिकार मिले।
+        जब हम इन मूल्यों को समझते और अपनाते हैं,
+        तभी लोकतंत्र मजबूत होता है
+        और राष्ट्र सच मायनों में प्रगति करता है।
+      </p>
+      
+      <div class="article" onclick="toggleArticle(this)">
+        <div class="article-title">⚖️ न्याय (Justice)</div>
+        <div class="article-content">
+          न्याय का अर्थ है हर नागरिक के साथ निष्पक्ष व्यवहार।
+          संविधान सामाजिक, आर्थिक और राजनीतिक न्याय की गारंटी देता है
+          ताकि कोई भी व्यक्ति शोषण या भेदभाव का शिकार न बने।
+        </div>
+      </div>
+      
+      <div class="article" onclick="toggleArticle(this)">
+        <div class="article-title">🕊️ स्वतंत्रता (Liberty)</div>
+        <div class="article-content">
+          हर नागरिक को विचार व्यक्त करने,
+          बोलने, लिखने, धर्म मानने और
+          अपने जीवन के निर्णय लेने की स्वतंत्रता है।
+          यह स्वतंत्रता कानून की सीमाओं के भीतर होती है।
+        </div>
+      </div>
+      
+      <div class="article" onclick="toggleArticle(this)">
+        <div class="article-title">⚖️ समानता (Equality)</div>
+        <div class="article-content">
+          संविधान के अनुसार कानून की नजर में
+          सभी नागरिक समान हैं।
+          जाति, धर्म, लिंग या धन के आधार पर
+          किसी भी प्रकार का भेदभाव स्वीकार्य नहीं है।
+        </div>
+      </div>
+      
+      <div class="article" onclick="toggleArticle(this)">
+        <div class="article-title">🤝 बंधुत्व (Fraternity)</div>
+        <div class="article-content">
+          बंधुत्व का अर्थ है देश के सभी नागरिकों में
+          भाईचारे, आपसी सम्मान और एकता की भावना।
+          यह राष्ट्रीय एकता और अखंडता को मजबूत करता है।
+        </div>
+      </div>
+      
+      <div class="article" onclick="toggleArticle(this)">
+        <div class="article-title">🛕 धर्मनिरपेक्षता (Secularism)</div>
+        <div class="article-content">
+          भारत का कोई राजकीय धर्म नहीं है।
+          सभी धर्मों को समान सम्मान प्राप्त है।
+          हर नागरिक को अपने धर्म को मानने या न मानने की स्वतंत्रता है।
+        </div>
+      </div>
+      
+      <div class="article" onclick="toggleArticle(this)">
+        <div class="article-title">🗳️ लोकतंत्र (Democracy)</div>
+        <div class="article-content">
+          लोकतंत्र में सत्ता जनता के हाथों में होती है।
+          नागरिक अपने प्रतिनिधि स्वयं चुनते हैं।
+          यही व्यवस्था भारत को दुनिया का सबसे बड़ा लोकतंत्र बनाती है।
+        </div>
+      </div>
+      
+    </div>
+    <div class="card constitution-head">
+      
+      <h2>📜 भारतीय संविधान – हर नागरिक के लिए</h2>
+      <p>
+        भारतीय संविधान केवल कानून की किताब नहीं है,
+        बल्कि यह हर नागरिक को सम्मान, सुरक्षा और स्वतंत्रता देता है।
+        नीचे दिए गए अनुच्छेद हर भारतीय को जरूर जानने चाहिए।
+      </p>
+    </div>
+    
+    <!-- CLICKABLE ARTICLES -->
+    <div class="card">
+      <h3>⭐ महत्वपूर्ण अनुच्छेद (Click करें)</h3>
+      
+      <div class="article" onclick="toggleArticle(this)">
+        <div class="article-title">अनुच्छेद 14 – समानता का अधिकार</div>
+        <div class="article-content">
+          भारत में कानून के सामने सभी नागरिक समान हैं।
+          कोई भी व्यक्ति कानून से ऊपर नहीं है।
+        </div>
+      </div>
+      
+      <div class="article" onclick="toggleArticle(this)">
+        <div class="article-title">अनुच्छेद 19 – स्वतंत्रता का अधिकार</div>
+        <div class="article-content">
+          नागरिकों को बोलने, लिखने, शांतिपूर्ण सभा करने
+          और भारत में कहीं भी आने-जाने की स्वतंत्रता है।
+        </div>
+      </div>
+      
+      <div class="article" onclick="toggleArticle(this)">
+        <div class="article-title">अनुच्छेद 21 – जीवन का अधिकार</div>
+        <div class="article-content">
+          किसी भी व्यक्ति को उसके जीवन या स्वतंत्रता से
+          कानून के बिना वंचित नहीं किया जा सकता।
+        </div>
+      </div>
+      
+      <div class="article" onclick="toggleArticle(this)">
+        <div class="article-title">अनुच्छेद 21A – शिक्षा का अधिकार</div>
+        <div class="article-content">
+          6 से 14 वर्ष तक के हर बच्चे को
+          मुफ्त और अनिवार्य शिक्षा का अधिकार है।
+        </div>
+      </div>
+      
+      <div class="article" onclick="toggleArticle(this)">
+        <div class="article-title">अनुच्छेद 22 – गिरफ्तारी से सुरक्षा</div>
+        <div class="article-content">
+          गिरफ्तार व्यक्ति को कारण बताया जाएगा
+          और 24 घंटे के भीतर मजिस्ट्रेट के सामने पेश किया जाएगा।
+        </div>
+      </div>
+      <div class="article" onclick="toggleArticle(this)">
+        <div class="article-title">अनुच्छेद 23 – मानव तस्करी का निषेध</div>
+        <div class="article-content">
+          किसी भी व्यक्ति से जबरन मजदूरी करवाना या
+          मानव तस्करी करना अपराध है।
+        </div>
+      </div>
+      
+      <div class="article" onclick="toggleArticle(this)">
+        <div class="article-title">अनुच्छेद 24 – बाल श्रम निषेध</div>
+        <div class="article-content">
+          14 वर्ष से कम उम्र के बच्चों से
+          खतरनाक काम नहीं करवाया जा सकता।
+        </div>
+      </div>
+      
+      <div class="article" onclick="toggleArticle(this)">
+        <div class="article-title">अनुच्छेद 25 – धार्मिक स्वतंत्रता</div>
+        <div class="article-content">
+          हर नागरिक को अपने धर्म को मानने,
+          मानने न मानने और प्रचार करने की स्वतंत्रता है।
+        </div>
+      </div>
+      
+      <div class="article" onclick="toggleArticle(this)">
+        <div class="article-title">अनुच्छेद 32 – संवैधानिक उपचार का अधिकार</div>
+        <div class="article-content">
+          अपने मौलिक अधिकारों के उल्लंघन पर
+          सीधे सुप्रीम कोर्ट जाया जा सकता है।
+        </div>
+      </div>
+      
+      <div class="article" onclick="toggleArticle(this)">
+        <div class="article-title">अनुच्छेद 39A – मुफ्त कानूनी सहायता</div>
+        <div class="article-content">
+          गरीब और कमजोर वर्ग को
+          मुफ्त कानूनी सहायता देना राज्य का कर्तव्य है।
+        </div>
+      </div>
+      
+      <div class="article" onclick="toggleArticle(this)">
+        <div class="article-title">अनुच्छेद 51A – मौलिक कर्तव्य</div>
+        <div class="article-content">
+          संविधान, राष्ट्रध्वज और राष्ट्रगान का सम्मान करना
+          हर नागरिक का कर्तव्य है।
+        </div>
+      </div>
+    </div>
+    
+    <!-- PRACTICAL LEGAL AWARENESS -->
+    <div class="card">
+      <h3>🧠 आम नागरिक के लिए उपयोगी कानूनी जानकारी</h3>
+      
+      <div class="info-box">
+        पुलिस आपको बिना वजह पूछताछ के लिए रोक नहीं सकती
+      </div>
+      <div class="info-box">
+        FIR दर्ज करवाना आपका कानूनी अधिकार है
+      </div>
+      <div class="info-box">
+        गिरफ्तारी के समय परिवार को सूचना देना अनिवार्य है
+      </div>
+      <div class="info-box">
+        महिला की तलाशी केवल महिला पुलिस कर सकती है
+      </div>
+      <div class="info-box">
+        वकील से बात करना आपका संवैधानिक अधिकार है
+      </div>
+    </div>
+    
+    <!-- IMPORTANT IPC SECTIONS -->
+    <div class="card">
+      <h3>⚖️ IPC की प्रमुख धाराएं</h3>
+      
+      <div class="law-box"><b>IPC 302</b> – हत्या</div>
+      <div class="law-box"><b>IPC 307</b> – हत्या का प्रयास</div>
+      <div class="law-box"><b>IPC 420</b> – धोखाधड़ी</div>
+      <div class="law-box"><b>IPC 376</b> – बलात्कार</div>
+      <div class="law-box"><b>IPC 354</b> – महिला से छेड़छाड़</div>
+      <div class="law-box"><b>IPC 506</b> – आपराधिक धमकी</div>
+      <div class="law-box"><b>IPC 323</b> – साधारण चोट पहुँचाना</div>
+      <div class="law-box"><b>IPC 324</b> – खतरनाक हथियार से चोट</div>
+      <div class="law-box"><b>IPC 341</b> – गलत तरीके से रोकना</div>
+      <div class="law-box"><b>IPC 354A</b> – यौन उत्पीड़न</div>
+      <div class="law-box"><b>IPC 379</b> – चोरी</div>
+      <div class="law-box"><b>IPC 392</b> – डकैती</div>
+      <div class="law-box"><b>IPC 406</b> – विश्वासघात</div>
+      <div class="law-box"><b>IPC 498A</b> – महिला पर क्रूरता</div>
+      <div class="law-box"><b>IPC 509</b> – महिला की गरिमा भंग करना</div>
+      <div class="law-box"><b>IPC 144</b> – गैरकानूनी सभा</div>
+      <div class="law-box"><b>IPC 120B</b> – आपराधिक साजिश</div>
+    </div>
+    <div class="card constitution-end">
+      <p style="text-align:center; font-style:italic; opacity:0.9;">
+        “अधिकार हमें शक्ति देते हैं, लेकिन कर्तव्य हमें महान बनाते हैं।”
+      </p>
+    </div>
+    <div class="card">
+      <h3>🧑‍🤝‍🧑 एक ज़िम्मेदार नागरिक की जिम्मेदारियाँ</h3>
+      
+      <p>
+        अधिकार तभी सार्थक होते हैं जब नागरिक अपने कर्तव्यों को भी
+        ईमानदारी से निभाएँ। एक ज़िम्मेदार नागरिक न केवल अपने अधिकारों
+        की रक्षा करता है, बल्कि समाज, राष्ट्र और लोकतंत्र को मजबूत
+        बनाने में भी सक्रिय भूमिका निभाता है।
+        नागरिकों की जागरूकता और जिम्मेदारी से ही
+        संविधान के मूल्य जीवित रहते हैं।
+      </p>
+      
+      <div class="info-box">
+        🇮🇳 संविधान, राष्ट्रध्वज और राष्ट्रगान का सम्मान करना
+      </div>
+      
+      <div class="info-box">
+        🗳️ लोकतांत्रिक प्रक्रिया में भाग लेना और मतदान करना
+      </div>
+      
+      <div class="info-box">
+        ⚖️ कानून का पालन करना और सामाजिक व्यवस्था बनाए रखना
+      </div>
+      
+      <div class="info-box">
+        🤝 सभी नागरिकों के साथ समानता और भाईचारे का व्यवहार करना
+      </div>
+      
+      <div class="info-box">
+        🌱 सार्वजनिक संपत्ति और पर्यावरण की रक्षा करना
+      </div>
+      
+      <div class="info-box">
+        📚 शिक्षा, जागरूकता और वैज्ञानिक सोच को बढ़ावा देना
+      </div>
+      
+      <div class="info-box">
+        🕊️ हिंसा, भेदभाव और नफरत से दूर रहकर शांति बनाए रखना
+      </div>
+    </div>
+    
+    <div class="card constitution-end">
+      <p>
+        संविधान जानना केवल ज्ञान नहीं,
+        बल्कि अपने अधिकारों की रक्षा करने की शक्ति है।
+      </p>
+    </div>
+    
+  </section>
+  
+  
+  <section id="game">
+    <div class="card" id="game-container">
+      <h3>अपने हीरो को चुनें</h3>
+      <div id="hero-select">
+        <button class="simp" onclick="initGame('भगत सिंह')">भगत सिंह</button>
+        <button class="simp" onclick="initGame('सरोजिनी नायडू')">सरोजिनी नायडू</button>
+        <button class="simp" onclick="initGame('सुभाष चंद्र बोस')">सुभाष चंद्र बोस</button>
+        <button class="simp" onclick="initGame('बीरसा मुंडा')">बीरसा मुंडा</button>
+        <button class="simp" onclick="initGame('रानी लक्ष्मीबाई')">रानी लक्ष्मीबाई</button>
+        <button class="simp" onclick="initGame('सावित्रीबाई फुले')">सावित्रीबाई फुले</button>
+        <button class="simp" onclick="initGame('चंद्रशेखर आज़ाद')">चंद्रशेखर आज़ाद</button>
+        <button class="simp" onclick="initGame('लाला लाजपत राय')">लाला लाजपत राय</button>
+        <button class="simp" onclick="initGame('महात्मा गांधी')">महात्मा गांधी</button>
+        <button class="simp" onclick="initGame('भानु प्रताप')">भानु प्रताप</button>
+      </div>
+      
+      <div id="stage-div" style="display:none;">
+        <h3 id="stage-heading"></h3>
+        <div id="stage-buttons">
+          <button class="simple" onclick="selectStageOption(0)"></button>
+          <button class="simple" onclick="selectStageOption(1)"></button>
+        </div>
+      </div>
+      
+      <div id="final-result" style="display:none;">
+        <h3>आपका नतीजा</h3>
+        <p id="result-info"></p>
+        <button class="simple" onclick="restartHeroGame()">फिर से खेलें 🔄</button>
+      </div>
+    </div>
+  </section>
+  
+  
+  <section id="heroes">
+    <h2 class="section-title">हमारे राष्ट्रीय नायक 🇮🇳</h2>
+    <p class="date">
+      अगर हमारे स्वतंत्रता सेनानियों का Instagram होता, तो उनके पोस्ट देशभक्ति, संघर्ष और बलिदान से भरे होते — इसी सोच पर यह डिज़ाइन बनाया गया है 🇮🇳
+    </p>
+    <div class="heroes-grid">
+      
+      
+      
+      <!-- HERO 1 -->
+      
+      
+      <div class="hero-card" onclick="flipHeroCard(this)">
+        <div class="hero-inner">
+          
+          <!-- FRONT -->
+          <div class="hero-front">
+            <div class="hero-front-scroll">
+              
+              <div class="insta-top">
+                <div class="dp-ring">
+                  <img src="https://i.pinimg.com/736x/19/95/a5/1995a5b77a960dd14fcc49d85a080dc6.jpg" alt="Dr Ambedkar">
+                </div>
+                <div class="profile-info">
+                  <b>dr.ambedkar</b>
+                  <span>संविधान निर्माता 🇮🇳</span>
+                </div>
+                <span class="opt">⋮</span>
+              </div>
+              
+              <div class="insta-stats">
+                <div><b>9</b><span>Posts</span></div>
+                <div><b>1891</b><span>Born</span></div>
+                <div><b>1956</b><span>Legacy</span></div>
+              </div>
+              
+              <div class="insta-posts">
+                <div class="post">
+                  <p>
+                    बचपन में भेदभाव और अपमान झेलने के बावजूद
+                    मैंने हार नहीं मानी।
+                    मुझे समझ आ गया था कि
+                    अगर समाज बदलना है
+                    तो शिक्षा सबसे बड़ा हथियार है।
+                    
+                    ज्ञान से ही बराबरी आती है,
+                    डर से नहीं।
+                  </p>
+                  <span class="date">
+                    संघर्ष और पढ़ाई का समय – प्रारंभिक जीवन
+                  </span>
+                </div>
+                <div class="post">
+                  <p>
+                    शिक्षा ही समानता का रास्ता है।
+                    समाज तभी आगे बढ़ेगा।
+                  </p>
+                  
+                </div>
+                <div class="post">
+                  <p>
+                    मैंने देखा कि समाज के एक बड़े हिस्से को
+                    पानी, मंदिर और सम्मान तक नहीं मिल रहा था।
+                    यह अन्याय मुझे स्वीकार नहीं था।
+                    
+                    मैंने कानून और विचारों के ज़रिये
+                    बराबरी की लड़ाई शुरू की,
+                    क्योंकि इंसान जन्म से नहीं,
+                    व्यवस्था से छोटा बनाया जाता है।</p>
+                  <span class="date">
+                    सामाजिक न्याय की लड़ाई – 1920
+                  </span>
+                </div>
+                <div class="post">
+                  <p>
+                    जब मुझे भारत का संविधान बनाने की जिम्मेदारी मिली,
+                    तो मैंने सिर्फ कानून नहीं लिखा,
+                    मैंने आम आदमी की आवाज़ लिखी।
+                    
+                    यह संविधान हर नागरिक को
+                    बराबरी, आज़ादी और न्याय का भरोसा देता है।
+                  </p> <span>
+                    संविधान निर्माण का समय – 1946 से 1949
+                  </span>
+                </div>
+                <div class="post">
+                  <p>
+                    संविधान सभी नागरिकों को
+                    समान अधिकार देता है।
+                  </p>
+                  <span class="date">1949 – संविधान सभा</span>
+                </div>
+                <div class="post">
+                  <p>
+                    आज भारत ने
+                    अपने बनाए हुए कानून से
+                    खुद को चलाने का फैसला किया।
+                    यह दिन सिर्फ़ कानून का नहीं,
+                    आम आदमी की इज़्ज़त का दिन था।
+                    संविधान से ही लोकतंत्र मजबूत होता है।
+                  </p> <span>
+                    संविधान लागू – 26 जनवरी 1950
+                  </span>
+                </div>
+                
+                
+                <div class="post">
+                  <p>
+                    कानून से बड़ा कोई नहीं।
+                    लोकतंत्र की यही ताकत है।
+                  </p>
+                  <span class="date">1950 – भारत</span>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <!-- BACK -->
+          <div class="hero-back">
+            <div class="hero-back-scroll">
+              <h3>डॉ. बी.आर. अंबेडकर 🇮🇳</h3>
+              
+              <p>
+                <b>जन्म:</b> 14 अप्रैल 1891<br>
+                <b>निधन:</b> 6 दिसंबर 1956
+              </p>
+              
+              <p>
+                डॉ. अंबेडकर भारतीय संविधान के
+                मुख्य निर्माता थे। उन्होंने
+                समानता और न्याय की नींव रखी।
+              </p>
+              
+              <p>
+                <b>योगदान:</b><br>
+                • भारतीय संविधान<br>
+                • मौलिक अधिकार<br>
+                • सामाजिक न्याय
+              </p>
+              
+              <p>
+                <b>स्लोगन:</b><br>
+                “शिक्षित बनो, संगठित रहो, संघर्ष करो”
+              </p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      <div class="hero-card" onclick="flipHeroCard(this)">
+        <div class="hero-inner">
+          
+          <!-- FRONT -->
+          <div class="hero-front">
+            <div class="hero-front-scroll">
+              
+              <div class="insta-top">
+                <div class="dp-ring">
+                  <img src="https://i.pinimg.com/736x/43/ca/c1/43cac13c27e84c6b7ee0722e540bda67.jpg" alt="Rajendra Prasad">
+                </div>
+                <div class="profile-info">
+                  <b>dr.rajendra</b>
+                  <span>पहले राष्ट्रपति 🇮🇳</span>
+                </div>
+                <span class="opt">⋮</span>
+              </div>
+              
+              <div class="insta-stats">
+                <div><b>7</b><span>Posts</span></div>
+                <div><b>1884</b><span>Born</span></div>
+                <div><b>1963</b><span>Legacy</span></div>
+              </div>
+              
+              <div class="insta-posts">
+                <div class="post">
+                  <p>
+                    संविधान ही
+                    लोकतंत्र की आत्मा है।
+                  </p>
+                  <span class="date">1950 – भारत</span>
+                </div>
+                
+                <div class="post">
+                  <p>
+                    राष्ट्रपति का कर्तव्य
+                    संविधान की रक्षा है।
+                  </p>
+                  <span class="date">1952</span>
+                </div>
+                
+                <div class="post">
+                  <p>
+                    सादगी ही
+                    सच्चा नेतृत्व है।
+                  </p>
+                  <span class="date">जीवन दर्शन</span>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <!-- BACK -->
+          <div class="hero-back">
+            <div class="hero-back-scroll">
+              <h3>डॉ. राजेंद्र प्रसाद 🇮🇳</h3>
+              
+              <p>
+                <b>जन्म:</b> 3 दिसंबर 1884<br>
+                <b>निधन:</b> 28 फरवरी 1963
+              </p>
+              
+              <p>
+                डॉ. राजेंद्र प्रसाद
+                भारत के पहले राष्ट्रपति थे।
+                वे सादगी और
+                संविधान के प्रतीक थे।
+              </p>
+              
+              <p>
+                <b>योगदान:</b><br>
+                • संविधान लागू करना<br>
+                • लोकतांत्रिक परंपरा<br>
+                • राष्ट्रीय सेवा
+              </p>
+              
+              <p>
+                <b>स्लोगन:</b><br>
+                “संविधान सर्वोपरि”
+              </p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      <div class="hero-card" onclick="flipHeroCard(this)">
+        <div class="hero-inner">
+          
+          <!-- FRONT -->
+          <div class="hero-front">
+            <div class="hero-front-scroll">
+              
+              <div class="insta-top">
+                <div class="dp-ring">
+                  <img src="https://wallpapers.com/images/high/depiction-of-sardar-patel-bt1vis6dv8oqsvfw.webp" alt="Sardar Patel">
+                </div>
+                <div class="profile-info">
+                  <b>sardar.patel</b>
+                  <span>लौह पुरुष 🇮🇳</span>
+                </div>
+                <span class="opt">⋮</span>
+              </div>
+              
+              <div class="insta-stats">
+                <div><b>8</b><span>Posts</span></div>
+                <div><b>1875</b><span>Born</span></div>
+                <div><b>1950</b><span>Legacy</span></div>
+              </div>
+              
+              <div class="insta-posts">
+                <div class="post">
+                  <p>
+                    देश को एक रखना
+                    सबसे बड़ा कर्तव्य है।
+                  </p>
+                  <span class="date">1947 – भारत</span>
+                </div>
+                
+                <div class="post">
+                  <p>
+                    रियासतों का भारत में
+                    विलय जरूरी है।
+                  </p>
+                  <span class="date">1948 – एकीकरण</span>
+                </div>
+                
+                <div class="post">
+                  <p>
+                    मजबूत भारत के लिए
+                    मजबूत नेतृत्व चाहिए।
+                  </p>
+                  <span class="date">लौह संकल्प</span>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <!-- BACK -->
+          <div class="hero-back">
+            <div class="hero-back-scroll">
+              <h3>सरदार पटेल 🇮🇳</h3>
+              
+              <p>
+                <b>जन्म:</b> 31 अक्टूबर 1875<br>
+                <b>निधन:</b> 15 दिसंबर 1950
+              </p>
+              
+              <p>
+                सरदार पटेल ने
+                भारत की सैकड़ों
+                रियासतों को जोड़कर
+                एक राष्ट्र बनाया।
+              </p>
+              
+              <p>
+                <b>योगदान:</b><br>
+                • राष्ट्रीय एकता<br>
+                • रियासतों का विलय<br>
+                • प्रशासनिक मजबूती
+              </p>
+              
+              <p>
+                <b>स्लोगन:</b><br>
+                “एक भारत, श्रेष्ठ भारत”
+              </p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      <div class="hero-card" onclick="flipHeroCard(this)">
+        <div class="hero-inner">
+          
+          <!-- FRONT -->
+          <div class="hero-front">
+            <div class="hero-front-scroll">
+              
+              <div class="insta-top">
+                <div class="dp-ring">
+                  <img src="https://i.pinimg.com/736x/df/83/39/df833951f58b345af409b32453971ce1.jpg" alt="Subhas Bose">
+                </div>
+                <div class="profile-info">
+                  <b>netaji.bose</b>
+                  <span>आजाद हिंद 🇮🇳</span>
+                </div>
+                <span class="opt">⋮</span>
+              </div>
+              
+              <div class="insta-stats">
+                <div><b>8</b><span>Posts</span></div>
+                <div><b>1897</b><span>Born</span></div>
+                <div><b>1945</b><span>Legend</span></div>
+              </div>
+              
+              <div class="insta-posts">
+                <div class="post">
+                  <p>
+                    अंग्रेज़ों से आज़ादी
+                    भीख में नहीं मिलेगी।
+                  </p>
+                  <span class="date">1941</span>
+                </div>
+                
+                <div class="post">
+                  <p>
+                    आज़ाद हिंद फौज का गठन।
+                    संघर्ष अब तेज़ होगा।
+                  </p>
+                  <span class="date">1943</span>
+                </div>
+                
+                <div class="post">
+                  <p>
+                    तुम मुझे खून दो,
+                    मैं तुम्हें आज़ादी दूंगा।
+                  </p>
+                  <span class="date">1944</span>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <!-- BACK -->
+          <div class="hero-back">
+            <div class="hero-back-scroll">
+              <h3>सुभाष चंद्र बोस 🇮🇳</h3>
+              
+              <p>
+                <b>जन्म:</b> 23 जनवरी 1897<br>
+                <b>निधन:</b> 1945
+              </p>
+              
+              <p>
+                नेताजी सुभाष चंद्र बोस
+                ने सशस्त्र संघर्ष का मार्ग चुना।
+                उन्होंने आज़ाद हिंद फौज बनाई।
+              </p>
+              
+              <p>
+                <b>योगदान:</b><br>
+                • आज़ाद हिंद फौज<br>
+                • विदेश से संघर्ष<br>
+                • युवाओं में जोश
+              </p>
+              
+              <p>
+                <b>स्लोगन:</b><br>
+                “जय हिंद”
+              </p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      <div class="hero-card" onclick="flipHeroCard(this)">
+        <div class="hero-inner">
+          
+          <!-- FRONT -->
+          <div class="hero-front">
+            <div class="hero-front-scroll">
+              
+              <div class="insta-top">
+                <div class="dp-ring">
+                  <img src="https://i.pinimg.com/736x/5a/95/f8/5a95f889ae52a963ec555d479e0b0f4a.jpg" alt="Mahatma Gandhi">
+                </div>
+                <div class="profile-info">
+                  <b>mahatma.gandhi</b>
+                  <span>अहिंसा • सत्य 🇮🇳</span>
+                </div>
+                <span class="opt">⋮</span>
+              </div>
+              
+              <div class="insta-stats">
+                <div><b>10</b><span>Posts</span></div>
+                <div><b>1869</b><span>Born</span></div>
+                <div><b>1948</b><span>Martyr</span></div>
+              </div>
+              
+              <div class="insta-posts">
+                <div class="post">
+                  <p>
+                    आज असहयोग आंदोलन की शुरुआत।
+                    अन्याय के खिलाफ बिना हिंसा के संघर्ष।
+                  </p>
+                  <span class="date">1920 – भारत</span>
+                </div>
+                
+                <div class="post">
+                  <p>
+                    नमक कानून तोड़ना सिर्फ नमक नहीं,
+                    गुलामी की जंजीर तोड़ना है।
+                  </p>
+                  <span class="date">1930 – दांडी</span>
+                </div>
+                
+                <div class="post">
+                  <p>
+                    भारत को आज़ादी अहिंसा से मिलेगी।
+                    सत्य ही हमारा मार्ग है।
+                  </p>
+                  <span class="date">1942 – भारत छोड़ो</span>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <!-- BACK -->
+          <div class="hero-back">
+            <div class="hero-back-scroll">
+              <h3>महात्मा गांधी 🇮🇳</h3>
+              
+              <p>
+                <b>जन्म:</b> 2 अक्टूबर 1869<br>
+                <b>शहादत:</b> 30 जनवरी 1948
+              </p>
+              
+              <p>
+                महात्मा गांधी भारत के स्वतंत्रता संग्राम
+                के सबसे बड़े नेता थे। उन्होंने सत्य और
+                अहिंसा के मार्ग से देश को एकजुट किया।
+              </p>
+              
+              <p>
+                <b>योगदान:</b><br>
+                • असहयोग आंदोलन<br>
+                • दांडी मार्च<br>
+                • भारत छोड़ो आंदोलन
+              </p>
+              
+              <p>
+                <b>स्लोगन:</b><br>
+                “करो या मरो”
+              </p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+      <div class="hero-card" onclick="flipHeroCard(this)">
+        <div class="hero-inner">
+          
+          <!-- FRONT -->
+          <div class="hero-front">
+            <div class="hero-front-scroll">
+              
+              <!-- INSTAGRAM TOP -->
+              <div class="insta-top">
+                <div class="dp-ring">
+                  <img src="https://i.pinimg.com/736x/13/e4/1d/13e41d42828f444cc976652ecced959a.jpg" alt="Bhagat Singh">
+                </div>
+                <div class="profile-info">
+                  <b>bhagat.singh</b>
+                  <span>क्रांतिकारी 🇮🇳</span>
+                </div>
+                <span class="opt">⋮</span>
+              </div>
+              
+              <!-- STATS -->
+              <div class="insta-stats">
+                <div><b>12</b><span>Posts</span></div>
+                <div><b>1907</b><span>Born</span></div>
+                <div><b>1931</b><span>Martyr</span></div>
+              </div>
+              
+              <!-- POSTS -->
+              <div class="insta-posts">
+                <div class="post">
+                  <p>
+                    आज अंग्रेज़ी सरकार के खिलाफ आवाज़ बुलंद की।
+                    क्रांति विचारों से जन्म लेती है।
+                  </p>
+                  <span class="date">1929 – दिल्ली</span>
+                </div>
+                
+                <div class="post">
+                  <p>
+                    लाठी, गोली और फांसी से डरने वाले हम नहीं।
+                    इंकलाब ज़िंदाबाद!
+                  </p>
+                  <span class="date">1930 – लाहौर</span>
+                </div>
+                
+                <div class="post">
+                  <p>
+                    अगर मेरे मरने से देश जागता है,
+                    तो मेरी मौत सौ बार स्वीकार है।
+                  </p>
+                  <span class="date">23 मार्च 1931</span>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <!-- BACK -->
+          <div class="hero-back">
+            <div class="hero-back-scroll">
+              <h3>भगत सिंह 🇮🇳</h3>
+              
+              <p>
+                <b>जन्म:</b> 28 सितंबर 1907<br>
+                <b>शहादत:</b> 23 मार्च 1931
+              </p>
+              
+              <p>
+                भगत सिंह भारतीय स्वतंत्रता संग्राम के
+                सबसे साहसी और विचारशील क्रांतिकारी थे।
+                उन्होंने अंग्रेज़ी हुकूमत के खिलाफ
+                युवाओं को जागरूक किया।
+              </p>
+              
+              <p>
+                <b>मुख्य योगदान:</b><br>
+                • सेंट्रल असेम्बली में बम (बिना नुकसान)<br>
+                • लाहौर षड्यंत्र केस<br>
+                • युवाओं में क्रांतिकारी विचार
+              </p>
+              
+              <p>
+                <b>स्लोगन:</b><br>
+                “इंकलाब ज़िंदाबाद” 🔥
+              </p>
+              
+              <p>
+                🇮🇳 उनका बलिदान हमें
+                संविधान, स्वतंत्रता और
+                गणतंत्र का मूल्य समझाता है।
+              </p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  
+  <section id="flag-section">
+    <h2 class="section-title">🇮🇳 हमारा तिरंगा 🇮🇳</h2>
+    
+    <div class="flag-wrapper">
+      <div class="flag-pole"></div>
+      
+      <div class="flag">
+        <div class="saffron"></div>
+        
+        <div class="white">
+          <div class="chak">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+        
+        <div class="green"></div>
+      </div>
+    </div>
+    <!-- Instructions -->
+    <div class="instructions">
+      <p class="anthem-note">
+        कृपया ध्यान दें!<br>
+        राष्ट्रीय गान के समय खड़े हों, पैरों को साथ रखें और सीधा रहें।<br>
+        हाथ आधे खुले रखें, अंगूठे से उंगलियों को हल्का मिलाएं।<br>
+        तिरंगे की ओर देखें और सम्मान के साथ गीत का आनंद लें।</p>
+      <button class="anthem-btn" onclick="toggleAnthem()">
+        ▶️ राष्ट्रीय गान चलाएं
+      </button>
+      
+      <audio id="anthem">
+        <source src="/republic day /anthem.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+    
+    <div class="instructions">
+      <p class="anthem-note">
+        🇮🇳 Republic Day Special Song —
+        यह छोटा सा देशभक्ति गीत मेरी ओर से सभी भारतवासियों के लिए |
+      </p>
+      <button class="anthem-btn second-btn" onclick="toggleSecondAnthem()">
+        ▶️ विशेष देशभक्ति गीत चलाएं
+      </button>
+      
+      <audio id="anthem2">
+        <source src="/republic day /special-song.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+  </section>
+  
+  
+  <section id="wishPage" class="page">
+    <div class="wish-wrapper">
+      
+      <!-- HOME -->
+      <div class="wish-box wish-home">
+        <h2>🇮🇳 Happy Republic Day 🇮🇳</h2>
+        <p>
+          
+          आज का दिन हमें हमारे संविधान की शक्ति,
+          लोकतंत्र की गरिमा और देश की एकता की याद दिलाता है।
+          आइए हम सब मिलकर,
+          अपने परिवार, समाज और देश के साथ
+          भारत के मूल्यों —
+          समानता, स्वतंत्रता और भाईचारे —
+          को हमेशा बनाए रखें।</br>
+          <strong>आप और आपके पूरे परिवार को
+            मेरी तरफ़ से गणतंत्र दिवस की
+            ढेर सारी हार्दिक शुभकामनाएं। 🇮🇳</strong>
+        </p>
+        <h3>✨ — Akshay</h3>
+        <button onclick="openWishCreate()">Wish Card बनाएं</button>
+      </div>
+      
+      <!-- CREATE -->
+      <div class="wish-box wish-create" style="display:none;">
+        <h2>🎉 अपना Wish Card बनाएं</h2>
+        
+        <input id="senderInput" placeholder="अपना नाम (जो भेज रहा है)">
+        <input id="receiverInput" placeholder="Receiver का नाम (जिन्हें भेजना है)">
+        <button onclick="generateWish()">Generate</button>
+        <button class="back" onclick="openWishHome()">Back</button>
+        
+      </div>
+      
+      <!-- FINAL -->
+      <div class="wish-box wish-final" style="display:none;">
+        <h2>🇮🇳 Happy Republic Day 🇮🇳</h2>
+        <p id="wishText">
+          <!-- Personalized message dynamically added here -->
+        </p>
+        <h3>✨ — <span id="wishName"></span></h3>
+        <input id="wishLink" readonly placeholder="यहाँ लिंक आएगा">
+        <button onclick="copyWish()">Copy Link</button>
+        <button class="back" onclick="openWishHome()">Home</button>
+      </div>
+      
+    </div>
+  </section>
+  
+  <section id="about">
+    <div class="card about-card">
+      <h2>मेरे बारे में</h2>
+      
+      <p>
+        नमस्ते! मेरा नाम <b>Akshay Kumar</b> है।
+        मुझे web development और technology में गहरी रुचि है।
+        मैंने यह वेबसाइट <b>गणतंत्र दिवस</b> के अवसर पर बनाई है ताकि लोग
+        हमारे <b>संविधान, स्वतंत्रता संग्राम और राष्ट्रीय नायकों</b> के बारे में
+        आसान और रोचक तरीके से जान सकें।
+      </p>
+      
+      <p>
+        इस वेबसाइट में मैंने HTML, CSS और JavaScript का उपयोग करके
+        <b>interactive pages, quiz, games और animations</b> बनाए हैं,
+        ताकि सीखना सिर्फ पढ़ना न होकर एक अनुभव बने।
+      </p>
+      
+      <p class="about-quote">
+        🇮🇳 “मेरा सपना है कि मैं technology के माध्यम से
+        देश के लिए कुछ नया और उपयोगी बना सकूं।” 🇮🇳
+      </p>
+    </div>
+  </section>
+  <script>
+    let menu = document.getElementById("menu");
+    let overlay = document.getElementById("overlay");
+    
+    /* MENU OPEN / CLOSE */
+    function openMenu() {
+      menu.style.right = "0px";
+      overlay.style.display = "block";
+    }
+    
+    function closeMenu() {
+      menu.style.right = "-260px";
+      overlay.style.display = "none";
+    }
+    
+    function toggleMenu() {
+      if (menu.style.right === "0px") {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    }
+    
+    overlay.onclick = closeMenu;
+    
+    /* PAGE SWITCH */
+    function showPage(id, btn) {
+      document.querySelectorAll("section").forEach(sec => {
+        sec.classList.remove("active");
+      });
+      document.getElementById(id).classList.add("active");
+      
+      document.querySelectorAll(".side-menu button").forEach(b => {
+        b.classList.remove("active-btn");
+      });
+      btn.classList.add("active-btn");
+      
+      closeMenu();
+    }
+    
+    /* ================= SWIPE GESTURE ================= */
+    let startX = 0;
+    let endX = 0;
+    
+    document.addEventListener("touchstart", e => {
+      startX = e.touches[0].clientX;
+    });
+    
+    document.addEventListener("touchend", e => {
+      endX = e.changedTouches[0].clientX;
+      handleSwipe();
+    });
+    
+    function handleSwipe() {
+      let diff = endX - startX;
+      
+      if (diff < -70) {
+        /* SWIPE LEFT → OPEN */
+        openMenu();
+      }
+      if (diff > 70) {
+        /* SWIPE RIGHT → CLOSE */
+        closeMenu();
+      }
+    }
+    
+    function toggleTimeline(el) {
+      let content = el.querySelector(".timeline-content");
+      content.style.display =
+        content.style.display === "block" ? "none" : "block";
+    }
+    
+    function toggleArticle(el) {
+      el.classList.toggle("active");
+    }
+    
+    function flipHeroCard(card) {
+      card.classList.toggle("flipped");
+    }
+    
+    const quizData = [
+      { q: "बिना कारण गिरफ्तार न किए जाने का अधिकार किस अनुच्छेद के तहत है?", options: ["अनुच्छेद 19", "अनुच्छेद 21", "अनुच्छेद 22", "अनुच्छेद 14"], ans: 2 },
+      { q: "कानून के सामने सभी नागरिक समान हैं – यह किस अनुच्छेद में है?", options: ["अनुच्छेद 14", "अनुच्छेद 15", "अनुच्छेद 21", "अनुच्छेद 32"], ans: 0 },
+      { q: "जीवन और व्यक्तिगत स्वतंत्रता का अधिकार किस अनुच्छेद में है?", options: ["अनुच्छेद 19", "अनुच्छेद 21", "अनुच्छेद 23", "अनुच्छेद 25"], ans: 1 },
+      { q: "अगर पुलिस FIR दर्ज न करे तो किस अनुच्छेद के तहत कोर्ट जा सकते हैं?", options: ["अनुच्छेद 19", "अनुच्छेद 21", "अनुच्छेद 32", "अनुच्छेद 51"], ans: 2 },
+      { q: "अभिव्यक्ति की स्वतंत्रता किस अनुच्छेद में है?", options: ["अनुच्छेद 14", "अनुच्छेद 17", "अनुच्छेद 19", "अनुच्छेद 22"], ans: 2 },
+      { q: "छुआछूत का अंत किस अनुच्छेद के अंतर्गत है?", options: ["अनुच्छेद 15", "अनुच्छेद 16", "अनुच्छेद 17", "अनुच्छेद 18"], ans: 2 },
+      { q: "मानव तस्करी पर रोक किस अनुच्छेद में है?", options: ["अनुच्छेद 21", "अनुच्छेद 22", "अनुच्छेद 23", "अनुच्छेद 24"], ans: 2 },
+      { q: "14 साल से कम बच्चों से खतरनाक काम कराना किस अनुच्छेद के खिलाफ है?", options: ["अनुच्छेद 21", "अनुच्छेद 23", "अनुच्छेद 24", "अनुच्छेद 25"], ans: 2 },
+      { q: "धर्म की स्वतंत्रता किस अनुच्छेद में दी गई है?", options: ["अनुच्छेद 19", "अनुच्छेद 21", "अनुच्छेद 25", "अनुच्छेद 32"], ans: 2 },
+      { q: "संविधान की रक्षा के लिए सुप्रीम कोर्ट जाने का अधिकार?", options: ["अनुच्छेद 21", "अनुच्छेद 25", "अनुच्छेद 32", "अनुच्छेद 51"], ans: 2 },
+      { q: "IPC 302 किससे संबंधित है?", options: ["चोरी", "हत्या", "धोखाधड़ी", "अपहरण"], ans: 1 },
+      { q: "IPC 420 किस अपराध से जुड़ा है?", options: ["मारपीट", "डकैती", "धोखाधड़ी", "हत्या"], ans: 2 },
+      { q: "पुलिस को गिरफ्तारी का कारण बताना अनिवार्य है – यह किस अनुच्छेद से जुड़ा है?", options: ["अनुच्छेद 19", "अनुच्छेद 21", "अनुच्छेद 22", "अनुच्छेद 25"], ans: 2 },
+      { q: "सरकारी नौकरी में समान अवसर किस अनुच्छेद में है?", options: ["अनुच्छेद 14", "अनुच्छेद 15", "अनुच्छेद 16", "अनुच्छेद 17"], ans: 2 },
+      { q: "राष्ट्रगान का सम्मान नागरिक कर्तव्य है – यह किस अनुच्छेद में आता है?", options: ["अनुच्छेद 48", "अनुच्छेद 49", "अनुच्छेद 50", "अनुच्छेद 51A"], ans: 3 }
+    ];
+    
+    /* VARIABLES */
+    let index = 0;
+    let score = 0;
+    
+    /* ELEMENTS */
+    const ques = document.getElementById("question");
+    const optionsDiv = document.querySelector(".options");
+    const result = document.getElementById("result");
+    const progress = document.getElementById("progress");
+    
+    /* LOAD QUESTION */
+    function loadQuestion() {
+      if (index >= quizData.length) {
+        ques.innerText = "🎉 Quiz Completed!";
+        optionsDiv.innerHTML = `
+      <h3>Score: ${score} / ${quizData.length}</h3>
+      <p>बहुत बढ़िया! आपने संविधान को समझने की कोशिश की 🇮🇳</p>
+      <button onclick="restartQuiz()" class="simple">Restart Quiz 🔄</button>
+    `;
+        progress.innerText = "";
+        result.innerText = "";
+        return;
+      }
+      
+      ques.innerText = quizData[index].q;
+      progress.innerText = `Question ${index + 1} / ${quizData.length}`;
+      result.innerText = "";
+      
+      optionsDiv.innerHTML = ""; // Clear previous buttons
+      
+      quizData[index].options.forEach((optText, i) => {
+        const btn = document.createElement("button");
+        btn.classList.add("simple");
+        btn.innerText = optText;
+        btn.addEventListener("click", () => checkAnswer(i));
+        optionsDiv.appendChild(btn);
+      });
+    }
+    
+    /* CHECK ANSWER */
+    function checkAnswer(i) {
+      const buttons = optionsDiv.querySelectorAll("button");
+      buttons.forEach(btn => btn.disabled = true);
+      
+      if (i === quizData[index].ans) {
+        buttons[i].classList.add("correct");
+        score++;
+        result.innerText = "सही जवाब ✅";
+      } else {
+        buttons[i].classList.add("wrong");
+        buttons[quizData[index].ans].classList.add("correct");
+        result.innerText = "गलत जवाब ❌";
+      }
+      
+      index++;
+      setTimeout(loadQuestion, 1200);
+    }
+    
+    /* RESTART QUIZ */
+    function restartQuiz() {
+      index = 0;
+      score = 0;
+      result.innerText = "";
+      loadQuestion();
+    }
+    
+    /* START QUIZ */
+    loadQuestion();
+    
+    // ================= VARIABLES =================
+    const heroStages = [
+    {
+      title: "Stage 1: बचपन",
+      options: ["खेल-खेल में देशभक्ति सीखना", "पढ़ाई में ध्यान लगाना"],
+      points: [2, 1]
+    },
+    {
+      title: "Stage 2: किशोरावस्था",
+      options: ["स्वतंत्रता संग्राम में भाग लेना", "अध्ययन और समाज सेवा करना"],
+      points: [2, 1]
+    },
+    {
+      title: "Stage 3: युवा जीवन",
+      options: ["लोकतंत्र और संविधान के लिए लड़ना", "स्थानीय समाज की मदद करना"],
+      points: [2, 1]
+    },
+    {
+      title: "Stage 4: जीवन का उत्तरार्ध",
+      options: ["राष्ट्रीय नायक बनना", "समुदाय में शांतिपूर्ण योगदान देना"],
+      points: [2, 1]
+    }];
+    
+    let heroName = "";
+    let currentStage = 0;
+    let heroScore = 0;
+    
+    const heroSelectDiv = document.getElementById("hero-select");
+    const stageDiv = document.getElementById("stage-div");
+    const stageHeading = document.getElementById("stage-heading");
+    const stageBtns = document.querySelectorAll("#stage-buttons button");
+    const finalResultDiv = document.getElementById("final-result");
+    const resultInfo = document.getElementById("result-info");
+    
+    // ================= START GAME =================
+    function initGame(hero) {
+      heroName = hero;
+      heroSelectDiv.style.display = "none";
+      stageDiv.style.display = "block";
+      currentStage = 0;
+      heroScore = 0;
+      loadHeroStage();
+    }
+    
+    // ================= LOAD STAGE =================
+    function loadHeroStage() {
+      if (currentStage >= heroStages.length) {
+        displayHeroResult();
+        return;
+      }
+      const stage = heroStages[currentStage];
+      stageHeading.innerText = `${stage.title} (${heroName})`;
+      stageBtns[0].innerText = stage.options[0];
+      stageBtns[1].innerText = stage.options[1];
+      stageBtns.forEach(btn => btn.disabled = false);
+    }
+    
+    // ================= CHOOSE OPTION =================
+    function selectStageOption(i) {
+      heroScore += heroStages[currentStage].points[i];
+      currentStage++;
+      loadHeroStage();
+    }
+    
+    // ================= SHOW RESULT =================
+    function displayHeroResult() {
+      stageDiv.style.display = "none";
+      finalResultDiv.style.display = "block";
+      
+      let heroType = "";
+      if (heroScore >= 7) heroType = "साहसी और देशभक्त 🌟";
+      else if (heroScore >= 5) heroType = "सूझ-बूझ वाला और समझदार 🧠";
+      else heroType = "शांतिप्रिय और दयालु 💖";
+      
+      resultInfo.innerHTML = `आपका चुना हुआ हीरो: <b>${heroName}</b><br>हीरो प्रकार: <b>${heroType}</b><br>स्कोर: ${heroScore} / ${heroStages.length * 2}`;
+    }
+    
+    // ================= RESTART GAME =================
+    function restartHeroGame() {
+      finalResultDiv.style.display = "none";
+      heroSelectDiv.style.display = "block";
+      heroName = "";
+      heroScore = 0;
+      currentStage = 0;
+    }
+    
+    
+    let playing = false;
+    let playing2 = false;
+    
+    function toggleAnthem() {
+      const anthem = document.getElementById("anthem");
+      const anthem2 = document.getElementById("anthem2");
+      const btn = document.querySelector(".anthem-btn:not(.second-btn)");
+      
+      anthem2.pause();
+      playing2 = false;
+      document.querySelector(".second-btn").innerText =
+        "▶️ विशेष देशभक्ति गीत चलाएं";
+      
+      if (!playing) {
+        anthem.play();
+        btn.innerText = "⏸️ राष्ट्रीय गान रोकें";
+        playing = true;
+      } else {
+        anthem.pause();
+        btn.innerText = "▶️ राष्ट्रीय गान चलाएं";
+        playing = false;
+      }
+    }
+    
+    function toggleSecondAnthem() {
+      const anthem = document.getElementById("anthem");
+      const anthem2 = document.getElementById("anthem2");
+      const btn = document.querySelector(".second-btn");
+      
+      anthem.pause();
+      playing = false;
+      document.querySelector(".anthem-btn:not(.second-btn)").innerText =
+        "▶️ राष्ट्रीय गान चलाएं";
+      
+      if (!playing2) {
+        anthem2.play();
+        btn.innerText = "⏸️ विशेष गीत रोकें";
+        playing2 = true;
+      } else {
+        anthem2.pause();
+        btn.innerText = "▶️ विशेष देशभक्ति गीत चलाएं";
+        playing2 = false;
+      }
+    }
+    
+    
+    
+    const wishHome = document.querySelector(".wish-home");
+    const wishCreate = document.querySelector(".wish-create");
+    const wishFinal = document.querySelector(".wish-final");
+    
+    function hideWishAll() {
+      wishHome.style.display = "none";
+      wishCreate.style.display = "none";
+      wishFinal.style.display = "none";
+    }
+    
+    function openWishHome() {
+      hideWishAll();
+      wishHome.style.display = "block";
+    }
+    
+    function openWishCreate() {
+      hideWishAll();
+      wishCreate.style.display = "block";
+    }
+    
+    function generateWish() {
+      const sender = document.getElementById("senderInput").value.trim();
+      const receiver = document.getElementById("receiverInput").value.trim();
+      
+      if (sender === "") {
+        alert("कृपया अपना नाम डालें!");
+        return;
+      }
+      
+      // Personalized message
+      let message = "";
+      if (receiver === "") {
+        message = `आज का दिन हमें हमारे संविधान की शक्ति,
+लोकतंत्र की गरिमा और देश की एकता की याद दिलाता है।
+आइए हम सब मिलकर,
+अपने परिवार, समाज और देश के साथ
+भारत के मूल्यों —
+समानता, स्वतंत्रता और भाईचारे —
+को हमेशा बनाए रखें।</br>
+<strong>आप और आपके पूरे परिवार को
+मेरी तरफ़ से गणतंत्र दिवस की
+ढेर सारी हार्दिक शुभकामनाएं। 🇮🇳</strong>`;
+      } else {
+        message = `${receiver} इस गणतंत्र दिवस के इस शुभ अवसर पर,
+आज का दिन हमें हमारे संविधान की शक्ति,  
+लोकतंत्र की गरिमा और देश की एकता की याद दिलाता है।  
+
+आइए हम सब मिलकर,  
+अपने परिवार, समाज और देश के साथ  
+भारत के मूल्यों —  
+समानता, स्वतंत्रता और भाईचारे —  
+को हमेशा बनाए रखें।  
+
+<strong>आप और आपके पूरे परिवार को  
+मेरी तरफ़ से गणतंत्र दिवस की  
+ढेर सारी हार्दिक शुभकामनाएं। 🇮🇳</strong>`;
+      }
+      
+      document.getElementById("wishName").innerText = sender;
+      document.getElementById("wishText").innerHTML = message;
+      
+      // Generate shareable link
+      const link = location.origin + location.pathname + "?wish=" + encodeURIComponent(sender) + (receiver ? "&to=" + encodeURIComponent(receiver) : "");
+      document.getElementById("wishLink").value = link;
+      
+      hideWishAll();
+      wishFinal.style.display = "block";
+    }
+    
+    function copyWish() {
+      const input = document.getElementById("wishLink");
+      input.select();
+      document.execCommand("copy");
+      alert("Link copy हो गया 🇮🇳");
+    }
+    
+    /* AUTO OPEN FROM LINK */
+    const params = new URLSearchParams(location.search);
+    const w = params.get("wish");
+    const to = params.get("to");
+    
+    if (w) {
+      document.getElementById("wishName").innerText = w;
+      
+      let p = document.getElementById("wishText");
+      if (to) {
+        p.innerHTML = `${to} इस गणतंत्र दिवस के इस शुभ अवसर पर,,  
+आज का दिन हमें हमारे संविधान की शक्ति,  
+लोकतंत्र की गरिमा और देश की एकता की याद दिलाता है।  
+
+आइए हम सब मिलकर,  
+अपने परिवार, समाज और देश के साथ  
+भारत के मूल्यों —  
+समानता, स्वतंत्रता और भाईचारे —  
+को हमेशा बनाए रखें।  
+
+<strong>आप और आपके पूरे परिवार को  
+मेरी तरफ़ से गणतंत्र दिवस की  
+ढेर सारी हार्दिक शुभकामनाएं। 🇮�</strong>`;
+      } else {
+        p.innerHTML = `आज का दिन हमें हमारे संविधान की शक्ति,
+लोकतंत्र की गरिमा और देश की एकता की याद दिलाता है।
+आइए हम सब मिलकर,
+अपने परिवार, समाज और देश के साथ
+भारत के मूल्यों —
+समानता, स्वतंत्रता और भाईचारे —
+को हमेशा बनाए रखें।</br>
+<strong>आप और आपके पूरे परिवार को
+मेरी तरफ़ से गणतंत्र दिवस की
+ढेर सारी हार्दिक शुभकामनाएं। 🇮🇳</strong>`;
+      }
+      
+      hideWishAll();
+      wishFinal.style.display = "block";
+    }
+  </script>
+  
+</body>
+
+</html>
